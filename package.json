@@ -29,5 +29,9 @@
     "coffee-script": ">=1.2.0"
   },
   "author": "billtt",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/billtt/hubot-wechatwork"
+  }
 }
