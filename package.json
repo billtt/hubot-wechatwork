@@ -1,6 +1,6 @@
 {
   "name": "hubot-wechatwork",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Hubot adapater for Wechat Work (企业微信)",
   "main": "./src/wechatwork",
   "scripts": {
