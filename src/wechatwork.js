@@ -53,8 +53,10 @@ class WechatWorkAdapter extends Adapter {
     send(envelope) {
         const strings = [].slice.call(arguments, 1);
         const msg = strings.join('\n');
-        if (envelope.user && envelope.user.id) {
-            this.wwork.sendMessage(envelope.user.id, msg);
+        if (envelope.room && envelope.room !== 'na') {
+            this.wwork.sendChatMessage(envelope.room, msg);
+        } else if (envelope.user && envelope.user.id) {
+            this.wwork.sendDirectMessage(envelope.user.id, msg);
         } else {
             this.robot.logger.warning(`Missing user id when sending message: ${JSON.stringify(envelope)}\n${msg}`);
         }
