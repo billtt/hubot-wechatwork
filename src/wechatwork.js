@@ -26,6 +26,7 @@ class WechatWorkAdapter extends Adapter {
     constructor(robot) {
         super(robot);
         this.wwork = new WechatWork(WECHATWORK_CORP_ID, WECHATWORK_APP_AGENT_ID, WECHATWORK_APP_SECRET);
+        this.robot.wwork = this.wwork;
     }
 
     run() {
@@ -39,15 +40,8 @@ class WechatWorkAdapter extends Adapter {
 
         this.emit('connected');
 
-        setTimeout(()=>{
-            const msg = {
-                user: { id: '1', name: 'Shell', room: 'Shell' },
-                done: false,
-                room: 'Shell',
-                text: 'bot ping',
-                id: 'messageId' };
-            this.receive(msg);
-        }, 1000);
+        // initialize utility bots
+        require('./wechatwork-bots')(this.robot);
     }
 
     send(envelope) {

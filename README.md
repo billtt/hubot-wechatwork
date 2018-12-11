@@ -53,3 +53,19 @@ Then click the "Save" button on the page. If everything goes well, the page will
 只需要在页面的URL中填入你的Web Server地址（以`/wechatwork/webhook`结尾），例如：`https://www.yourdomain.com/wechatwork/webhook`
 
 然后点击页面上的"保存"。如果一切顺利，会看到设置成功的消息。如果提示出错，请检查你的Web Server是否可以从外部访问。
+
+## Creating Chats 创建群聊会话
+This project includes a utility bot which allows you to create group chats that the bot can send messages to. Once you have set up the hubot correctly as instructed above, you can just send to the bot (wechat app) the following command to create a chat:
+```
+chat create CHATID USER1,USER2,USER3,...
+```
+
+Please note, CHATID can only be alphanumeric characters, and there must be at least two users to form a chat. You need to remember CHATID for your bots to send messages to (use as room id). You can change the group's name on Wechat Work after the group is created, which doesn't affect the CHATID.
+
+此项目自带一个bot用于创建群聊会话。用这种方式创建出来的群聊会关联你的应用，并可在之后通过Hubot向群聊中发送消息。
+当你完成了本文档前面的Hubot相关设置之后，在启动了Hubot之后，可向你的Bot（应用）发送如下命令来创建群聊会话：
+```
+chat create CHATID USER1,USER2,USER3,...
+```
+
+其中，CHATID是你的群聊ID，此ID用于之后Hubot发送消息（房间ID），所以请务必记住。USER列表为初始群聊用户名，至少需要指定两个用户。群聊创建完成后，群聊名默认为CHATID，群主可自行修改群聊名称，以及管理人员列表。CHATID不受影响。

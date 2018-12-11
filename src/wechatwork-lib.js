@@ -74,6 +74,15 @@ class WechatWork {
         };
         return await this.postAPI('/appchat/send', json);
     }
+
+    async createChat(chatId, users, owner) {
+        const json = {
+            owner,
+            userlist: users,
+            chatid: chatId
+        };
+        return await this.postAPI('/appchat/create', json);
+    }
 }
 
 module.exports = WechatWork;
